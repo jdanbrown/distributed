@@ -28,6 +28,14 @@ logger = logging.getLogger(__name__)
 
 
 def get_total_physical_memory():
+
+    # XXX(db)
+    import os
+    xxx_tcp_total_mem = os.getenv('XXX_TCP_TOTAL_MEM')
+    if xxx_tcp_total_mem:
+        return float(xxx_tcp_total_mem)
+    # XXX(db)
+
     try:
         import psutil
         return psutil.virtual_memory().total / 2
